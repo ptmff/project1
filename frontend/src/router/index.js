@@ -5,6 +5,8 @@ import Projects from '../views/Projects.vue'
 import ProjectDetail from '../views/ProjectDetail.vue'
 import NotFound from '../views/NotFound.vue'
 import { useAuthStore } from '../stores/auth'
+import Defects from '../views/Defects.vue'
+import DefectDetail from '../views/DefectDetail.vue'
 
 
 const routes = [
@@ -22,6 +24,18 @@ path: '/projects/:id',
 name: 'ProjectDetail',
 component: ProjectDetail,
 meta: { requiresAuth: true }
+},
+{
+  path: '/defects',
+  name: 'Defects',
+  component: Defects,
+  meta: { requiresAuth: true }
+},
+{
+  path: '/defects/:id',
+  name: 'DefectDetail',
+  component: DefectDetail,
+  meta: { requiresAuth: true }
 },
 { path: '/:pathMatch(.*)*', name: 'NotFound', component: NotFound }
 ]
