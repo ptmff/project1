@@ -27,7 +27,7 @@ router.get('/', verifyToken, async (req, res) => {
       where,
       include: [
         { model: User, as: 'creator', attributes: ['id', 'username'] },
-        { model: Stage, as: 'stages', attributes: ['id', 'name', 'status'] },
+        { model: Stage, as: 'stages', attributes: ['id', 'name', 'status', 'order'] },
       ],
       limit: parseInt(limit),
       offset: parseInt(offset),
