@@ -34,7 +34,7 @@ const { logger, logAction } = require('./utils/logger');
 app.use(securityHeaders);
 app.use(xssProtection);
 app.use(cors({
-  origin: process.env.CORS_ORIGIN || '*',
+  origin: '*',
   credentials: true,
 }));
 
