@@ -1,0 +1,2 @@
+{"error":"invalid input syntax for type uuid: \"user-uuid\"","level":"error","message":"Failed to create defect","service":"defect-tracking-system","timestamp":"2025-10-07 03:20:30","userId":"11bdb7f8-ab1a-4264-9f18-e50b6f26d896"}
+{"error":"invalid input syntax for type uuid: \"stage-uuid\"","level":"error","message":"Failed to create defect","service":"defect-tracking-system","timestamp":"2025-10-07 03:20:51","userId":"11bdb7f8-ab1a-4264-9f18-e50b6f26d896"}
