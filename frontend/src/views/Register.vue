@@ -68,7 +68,7 @@ async function onSubmit() {
   align-items: center;
   justify-content: center;
   height: 100vh;
-  background: radial-gradient(circle at 20% 30%, #1e3c72, #2a5298);
+  background: radial-gradient(circle at 20% 20%, #243b55, #141e30);
   background-attachment: fixed;
   animation: gradientMove 10s ease infinite alternate;
   font-family: 'Inter', system-ui, sans-serif;

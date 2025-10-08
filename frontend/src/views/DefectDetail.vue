@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="page">
     <NavBar />
     <section class="container">
       <button class="back" @click="goBack">← Назад</button>
@@ -337,23 +337,267 @@ onMounted(async ()=>{
 </script>
 
 <style scoped>
-.container { padding: 20px; max-width: 1100px; margin:auto; }
-.card-glass { background: rgba(255,255,255,0.08); backdrop-filter: blur(10px); padding:16px; border-radius:12px; }
-.row { display:flex; gap:16px; margin-top:12px; align-items:flex-start; }
-.col { flex:1; min-width: 280px; }
-.muted { color:#bbb }
-.comment { padding:8px; border-radius:8px; background: rgba(0,0,0,0.05); margin-bottom:8px }
-.add-comment textarea { width:100%; height:80px; }
-.actions { margin-top:12px; display:flex; gap:8px; }
-button { padding:8px 12px; border-radius:10px; border:none; cursor:pointer; }
-button.danger { background: #ff6b6b; color:white; }
-.attachments-list { display:flex; flex-direction:column; gap:8px; margin-bottom:8px; }
-.attachment { display:flex; justify-content:space-between; align-items:center; padding:8px; border-radius:8px; background: rgba(255,255,255,0.03); }
-.attachment .filename { font-weight:600 }
-.attachment .meta { color:#999; font-size:12px }
-.upload-box { margin-top:12px; padding:10px; border-radius:10px; }
-.upload-actions { margin-top:8px; display:flex; gap:8px; }
-.hint { margin-top:8px; color:#aaa; font-size:13px }
-.selected-info { margin-top:8px; color:#eee }
-.no-attachments { color:#999; font-style:italic }
+.page {
+  background: radial-gradient(circle at 20% 20%, #243b55, #141e30);
+  color: #fff;
+  font-family: 'Inter', system-ui, sans-serif;
+  min-height: 100vh;
+  padding-bottom: 40px;
+}
+
+.container {
+  max-width: 1100px;
+  margin: auto;
+  padding: 24px 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+/* кнопка назад */
+.back {
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(12px);
+  border: none;
+  padding: 8px 16px;
+  border-radius: 12px;
+  cursor: pointer;
+  color: #fff;
+  font-weight: 500;
+  transition: 0.2s;
+  width: fit-content;
+}
+.back:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 18px rgba(0,0,0,0.35);
+}
+
+/* стеклянные карточки */
+.card-glass {
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(12px);
+  padding: 20px;
+  border-radius: 16px;
+  box-shadow: 0 8px 32px rgba(0,0,0,0.4);
+  color: #eee;
+}
+
+/* строки и колонки */
+.row {
+  display: flex;
+  gap: 20px;
+  margin-top: 16px;
+  flex-wrap: wrap;
+}
+.col {
+  flex: 1;
+  min-width: 280px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+/* заголовки */
+h1, h3 {
+  color: #fff;
+  margin-bottom: 12px;
+}
+h4 {
+  color: #fff;
+  margin: 0 0 6px 0;
+}
+
+/* метки и текст */
+.muted {
+  color: #aaa;
+}
+.meta-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  font-size: 13px;
+}
+.badge {
+  padding: 4px 8px;
+  border-radius: 8px;
+  background: rgba(0,120,255,0.6);
+  color: #fff;
+  font-size: 12px;
+  font-weight: 500;
+}
+
+/* формы */
+label {
+  display: flex;
+  flex-direction: column;
+  font-size: 14px;
+  gap: 4px;
+}
+input, select, textarea {
+  background: rgba(255,255,255,0.05);
+  border: 1px solid rgba(255,255,255,0.2);
+  border-radius: 12px;
+  padding: 10px;
+  color: #eee;
+  outline: none;
+  width: 100%;
+  transition: 0.2s;
+}
+input:focus, select:focus, textarea:focus {
+  border-color: rgba(0,150,255,0.7);
+  box-shadow: 0 0 6px rgba(0,150,255,0.3);
+}
+
+/* кнопки */
+button {
+  background: rgba(255, 255, 255, 0.08);
+  color: #fff;
+  border: none;
+  padding: 10px 16px;
+  border-radius: 14px;
+  cursor: pointer;
+  font-weight: 500;
+  transition: 0.2s;
+}
+button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 18px rgba(0,0,0,0.4);
+}
+button.danger {
+  background: rgba(255, 80, 80, 0.9);
+}
+
+/* комментарии */
+.comment {
+  background: rgba(255,255,255,0.05);
+  border-radius: 12px;
+  padding: 12px;
+}
+.comment .author {
+  font-weight: 600;
+  color: #fff;
+  margin-bottom: 6px;
+}
+.comment .content {
+  color: #eee;
+}
+
+/* добавление комментария */
+.add-comment textarea {
+  background: rgba(255,255,255,0.05);
+  border-radius: 12px;
+  border: 1px solid rgba(255,255,255,0.2);
+  padding: 10px;
+  color: #eee;
+  resize: none;
+  width: 100%;
+  min-height: 80px;
+}
+.add-comment button {
+  margin-top: 8px;
+  align-self: flex-end;
+}
+
+/* вложения */
+.attachments-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+.attachment {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px;
+  border-radius: 12px;
+  background: rgba(255,255,255,0.05);
+}
+.attachment .filename {
+  font-weight: 600;
+}
+.attachment .meta {
+  color: #ccc;
+  font-size: 12px;
+  margin-top: 2px;
+}
+.attachment .right button {
+  margin-left: 8px;
+}
+
+/* загрузка файлов */
+.upload-box {
+  background: rgba(255,255,255,0.05);
+  border-radius: 16px;
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+.upload-box h4 {
+  margin: 0;
+}
+.upload-actions {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+.selected-info {
+  font-size: 13px;
+  color: #ccc;
+}
+.hint {
+  font-size: 12px;
+  color: #888;
+}
+
+/* история */
+ul {
+  list-style: none;
+  padding-left: 0;
+}
+ul li {
+  padding: 6px 0;
+  border-bottom: 1px solid rgba(255,255,255,0.1);
+  font-size: 13px;
+  color: #ccc;
+}
+
+.col {
+  flex: 1;
+  min-width: 280px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+/* все поля и блоки в колонке */
+.col label,
+.upload-box {
+  width: 100%;
+  box-sizing: border-box; /* чтобы padding не ломал ширину */
+}
+
+/* input, select, textarea */
+input, select, textarea {
+  width: 100%;
+  box-sizing: border-box; /* важно для одинаковой ширины */
+}
+
+/* кнопки */
+.actions button,
+.upload-actions button,
+.add-comment button {
+  min-width: 120px; /* одинаковая минимальная ширина */
+  max-width: 100%;
+  width: fit-content;
+}
+
+/* блок загрузки */
+.upload-box {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  width: 100%;
+}
+
 </style>
