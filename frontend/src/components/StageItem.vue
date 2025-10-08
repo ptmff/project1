@@ -70,7 +70,88 @@ async function remove() {
 </script>
 
 <style scoped>
-.stage { border: 1px solid #ddd; padding: 8px; border-radius: 6px; background: #fafafa; margin-bottom: 6px }
-label { display: block; margin: 4px 0 }
-button { margin-right: 4px; margin-top: 4px }
+.stage {
+  background: rgba(255, 255, 255, 0.06);
+  backdrop-filter: blur(12px);
+  padding: 16px;
+  border-radius: 14px;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.stage:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 28px rgba(0, 0, 0, 0.3);
+}
+
+h4 {
+  margin: 0;
+  font-size: 17px;
+  color: #fff;
+  font-weight: 600;
+}
+
+p {
+  margin: 0;
+  font-size: 14px;
+  color: #ccc;
+  line-height: 1.4;
+}
+
+p strong {
+  color: #43e97b;
+}
+
+label {
+  display: flex;
+  flex-direction: column;
+  font-size: 14px;
+  color: #ddd;
+  margin-bottom: 8px;
+}
+
+input,
+select {
+  margin-top: 6px;
+  padding: 8px 10px;
+  border-radius: 10px;
+  border: none;
+  background: rgba(255, 255, 255, 0.1);
+  color: #fff;
+  outline: none;
+  font-size: 14px;
+  transition: background 0.2s, box-shadow 0.2s;
+}
+
+input:focus,
+select:focus {
+  background: rgba(255, 255, 255, 0.18);
+  box-shadow: 0 0 0 2px rgba(0, 198, 255, 0.3);
+}
+
+button {
+  padding: 6px 12px;
+  border-radius: 10px;
+  border: none;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 500;
+  color: #fff;
+  background: linear-gradient(135deg, #0072ff, #00c6ff);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  margin-right: 6px;
+  margin-top: 6px;
+}
+
+button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 18px rgba(0, 198, 255, 0.4);
+}
+
+button:nth-child(2) {
+  background: linear-gradient(135deg, #ff758c, #ff7eb3);
+}
 </style>

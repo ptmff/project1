@@ -190,11 +190,102 @@ onMounted(async () => {
 </script>
 
 <style scoped>
-.container { padding: 20px; max-width: 1100px; margin:auto; }
-.toolbar { display:flex; justify-content:space-between; align-items:center; gap:12px; padding:12px; margin-bottom:12px; }
-.filters { display:flex; gap:8px; align-items:center; flex-wrap:wrap; }
-.list { display:flex; flex-direction:column; gap:12px; margin-top:12px; }
-.card-glass { background: rgba(255,255,255,0.08); backdrop-filter: blur(10px); padding:12px; border-radius:12px; }
-.create-defect { margin-top:12px; padding:12px; }
-.pagination { display:flex; gap:8px; align-items:center; justify-content:center; margin-top:16px; padding:10px; border-radius:10px; }
+.page {
+  min-height: 100vh;
+  background: radial-gradient(circle at 20% 20%, #1e3c72, #2a5298);
+  color: #fff;
+  font-family: 'Inter', system-ui, sans-serif;
+}
+
+.container {
+  padding: 30px 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.toolbar {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-bottom: 20px;
+}
+
+.filters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  align-items: center;
+}
+
+input, select {
+  padding: 8px 12px;
+  border-radius: 10px;
+  border: none;
+  background: rgba(255,255,255,0.1);
+  color: #fff;
+  outline: none;
+  font-size: 14px;
+  transition: 0.2s;
+}
+
+input::placeholder {
+  color: rgba(255,255,255,0.6);
+}
+
+input:focus, select:focus {
+  background: rgba(255,255,255,0.2);
+  box-shadow: 0 0 0 2px rgba(0,198,255,0.3);
+}
+
+button {
+  padding: 8px 14px;
+  border-radius: 12px;
+  border: none;
+  cursor: pointer;
+  font-weight: 500;
+  background: linear-gradient(135deg, #00c6ff, #0072ff);
+  color: #fff;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 18px rgba(0,114,255,0.4);
+}
+
+button:nth-child(2) {
+  background: linear-gradient(135deg, #43e97b, #38f9d7);
+}
+
+.card-glass {
+  background: rgba(255,255,255,0.08);
+  backdrop-filter: blur(12px);
+  border-radius: 14px;
+  padding: 16px;
+  box-shadow: 0 8px 32px rgba(0,0,0,0.15);
+}
+
+.create-defect {
+  margin-top: 12px;
+  padding: 16px;
+}
+
+.list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-top: 16px;
+}
+
+.pagination {
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+  align-items: center;
+  margin-top: 20px;
+  padding: 12px;
+  border-radius: 12px;
+  background: rgba(255,255,255,0.08);
+  backdrop-filter: blur(10px);
+}
 </style>

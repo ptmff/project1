@@ -55,74 +55,125 @@ function pretty(d) {
 
 <style scoped>
 .card {
-  padding: 16px;
-  border-radius: 16px;
-  background: rgba(255, 255, 255, 0.12);
-  backdrop-filter: blur(10px);
-  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.08);
+  padding: 20px;
+  border-radius: 18px;
+  background: rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(20px);
+  box-shadow: 0 6px 25px rgba(0, 0, 0, 0.25);
   display: flex;
   flex-direction: column;
   gap: 10px;
-  color: #000;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+  color: #f5f5f5;
+}
+
+.card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 10px 35px rgba(0, 0, 0, 0.35);
+}
+
+h3 {
+  margin: 0;
+  font-size: 20px;
+  font-weight: 600;
+  color: #fff;
+  letter-spacing: 0.3px;
 }
 
 .desc {
-  color: #000;
-  margin: 0;
+  color: #ddd;
+  margin: 4px 0 0;
+  line-height: 1.5;
+  font-size: 14px;
 }
 
 .meta {
   font-size: 13px;
-  color: #000;
+  color: #aaa;
   display: flex;
-  gap: 10px;
   flex-wrap: wrap;
+  gap: 8px;
+}
+
+.meta strong {
+  color: #43e97b;
+  font-weight: 600;
 }
 
 .stages-preview {
+  margin-top: 6px;
+  padding-top: 6px;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
   font-size: 13px;
-  color: #000;
+  color: #ccc;
+}
+
+.stages-title {
+  font-weight: 600;
+  color: #fff;
+  margin-bottom: 4px;
 }
 
 .stages-preview ul {
-  margin: 6px 0 0 18px;
+  margin: 0 0 0 18px;
   padding: 0;
   list-style: decimal;
 }
 
 .stages-preview li {
+  margin: 2px 0;
   display: flex;
   align-items: center;
-  gap: 8px;
+  gap: 6px;
+}
+
+.stages-preview small {
+  color: #8fe3ff;
+}
+
+.no-stages {
+  font-size: 13px;
+  color: rgba(255, 255, 255, 0.6);
+  margin-top: 8px;
 }
 
 .actions {
   margin-top: auto;
   display: flex;
-  gap: 8px;
+  gap: 10px;
   align-items: center;
 }
 
 .actions a,
 .actions button {
-  color: #000;
-  text-decoration: none;
-  background: rgba(255, 255, 255, 0.06);
+  color: #fff;
+  background: linear-gradient(135deg, #0072ff, #00c6ff);
   border: none;
-  padding: 6px 10px;
-  border-radius: 10px;
+  padding: 8px 12px;
+  border-radius: 12px;
+  font-size: 14px;
   cursor: pointer;
-  transition: 0.2s;
+  text-decoration: none;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
-.actions button:hover,
-.actions a:hover {
+.actions button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.actions a:hover,
+.actions button:hover {
   transform: translateY(-2px);
-  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.12);
+  box-shadow: 0 6px 18px rgba(0, 114, 255, 0.4);
 }
 
-.no-stages {
-  color: #555;
-  font-size: 13px;
+.actions button:nth-child(2) {
+  background: linear-gradient(135deg, #ff758c, #ff7eb3);
+}
+
+.actions button:nth-child(3) {
+  background: linear-gradient(135deg, #f85032, #e73827);
 }
 </style>

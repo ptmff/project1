@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="page">
     <NavBar />
 
     <section class="container">
@@ -125,86 +125,171 @@ onMounted(async () => {
 </script>
 
 <style scoped>
+.page {
+  min-height: 100vh;
+  background: radial-gradient(circle at 20% 20%, #243b55, #141e30);
+  color: #f5f5f5;
+  font-family: 'Inter', system-ui, sans-serif;
+}
+
+
 .container {
-  padding: 24px;
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 40px 24px;
   display: flex;
   flex-direction: column;
-  gap: 16px;
+  gap: 24px;
+  color: #f5f5f5;
+  font-family: 'Inter', system-ui, sans-serif;
+  animation: fadeIn 0.6s ease;
 }
 
+/* Кнопка "Назад" */
 .back-btn {
   align-self: flex-start;
-  background: rgba(255, 255, 255, 0.15);
+  background: linear-gradient(135deg, rgba(0, 114, 255, 0.3), rgba(0, 198, 255, 0.3));
   backdrop-filter: blur(12px);
   border: none;
-  padding: 8px 14px;
-  border-radius: 10px;
+  padding: 10px 16px;
+  border-radius: 12px;
+  color: #fff;
+  font-weight: 500;
   cursor: pointer;
-  transition: 0.2s;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
 }
 .back-btn:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.12);
+  transform: translateY(-3px);
+  box-shadow: 0 6px 18px rgba(0, 198, 255, 0.4);
 }
 
+/* Карточки (стеклянные блоки) */
 .card-glass {
-  background: rgba(255, 255, 255, 0.12);
-  backdrop-filter: blur(12px);
-  padding: 16px;
-  border-radius: 16px;
-  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.08);
+  background: rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(18px);
+  padding: 24px;
+  border-radius: 18px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.25);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.card-glass:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 10px 38px rgba(0, 0, 0, 0.35);
 }
 
+/* Заголовок проекта */
 .project-header h1 {
   margin: 0;
+  font-size: 30px;
+  font-weight: 600;
+  color: #fff;
 }
+
 .desc {
-  margin: 6px 0 10px;
-  color: #000;
+  margin: 10px 0 14px;
+  color: #ddd;
+  font-size: 15px;
+  line-height: 1.6;
 }
-.meta p {
-  margin: 4px 0;
-  color: #000;
+
+.meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px 20px;
   font-size: 14px;
+  color: #bbb;
+}
+
+.meta strong {
+  color: #43e97b;
+  font-weight: 600;
+}
+
+/* Этапы */
+h2 {
+  font-size: 22px;
+  font-weight: 600;
+  margin-top: 10px;
+  margin-bottom: 4px;
+  color: #fff;
+  border-left: 4px solid #00c6ff;
+  padding-left: 10px;
 }
 
 .stages {
   display: flex;
   flex-direction: column;
-  gap: 10px;
+  gap: 14px;
 }
 
 .no-stages {
-  color: #666;
+  color: rgba(255, 255, 255, 0.6);
   font-style: italic;
+  font-size: 15px;
+  padding-left: 8px;
+}
+
+/* Добавление этапа */
+.add-stage {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.add-stage h3 {
+  margin: 0 0 6px;
+  font-size: 18px;
+  color: #fff;
 }
 
 .add-stage label {
   display: flex;
   flex-direction: column;
-  gap: 4px;
+  gap: 6px;
   font-size: 14px;
-  margin-bottom: 8px;
+  color: #ccc;
 }
+
 .add-stage input,
 .add-stage textarea,
 .add-stage select {
-  padding: 6px 8px;
-  border-radius: 8px;
-  border: 1px solid #ddd;
+  padding: 10px 12px;
+  border-radius: 10px;
+  border: none;
+  background: rgba(255, 255, 255, 0.1);
+  color: #fff;
+  outline: none;
+  font-size: 14px;
+  transition: background 0.2s, box-shadow 0.2s;
 }
 
+.add-stage input:focus,
+.add-stage textarea:focus,
+.add-stage select:focus {
+  background: rgba(255, 255, 255, 0.18);
+  box-shadow: 0 0 0 2px rgba(0, 198, 255, 0.3);
+}
+
+/* Кнопка добавления */
 .btn-glass {
-  background: rgba(255, 255, 255, 0.15);
-  backdrop-filter: blur(10px);
+  align-self: flex-start;
+  background: linear-gradient(135deg, #43e97b, #38f9d7);
   border: none;
-  padding: 8px 14px;
+  padding: 10px 18px;
   border-radius: 12px;
+  color: #fff;
+  font-weight: 500;
   cursor: pointer;
-  transition: 0.2s;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
 }
 .btn-glass:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.12);
+  transform: translateY(-3px);
+  box-shadow: 0 8px 22px rgba(56, 249, 215, 0.4);
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(15px); }
+  to { opacity: 1; transform: translateY(0); }
 }
 </style>

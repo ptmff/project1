@@ -7,3 +7,4 @@
 {"level":"warn","message":"Stage deleted","service":"defect-tracking-system","stageId":"1b3e6174-7c97-4fb4-a295-5051b7da958d","timestamp":"2025-10-08 00:34:11","userId":"68f07b60-ef47-4f9d-9ad4-08f28c6f6135"}
 {"error":"Validation error: Validation len on name failed","level":"error","message":"Failed to create stage","service":"defect-tracking-system","timestamp":"2025-10-08 00:40:06","userId":"68f07b60-ef47-4f9d-9ad4-08f28c6f6135"}
 {"attachmentId":"9813d71c-4fe7-4b8b-bf3d-9ab08c27e1c0","level":"warn","message":"Attachment deleted","service":"defect-tracking-system","timestamp":"2025-10-08 01:29:55","userId":"68f07b60-ef47-4f9d-9ad4-08f28c6f6135"}
+{"ip":"::1","level":"warn","message":"Unauthorized access attempt","method":"POST","path":"/login","service":"defect-tracking-system","statusCode":401,"timestamp":"2025-10-08 01:38:41","userAgent":"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"}

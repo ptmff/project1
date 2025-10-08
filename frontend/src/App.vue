@@ -23,5 +23,34 @@ onMounted(async () => {
 </template>
 
 <style>
-html,body,#app { height:100%; margin:0; font-family: Inter, ui-sans-serif, system-ui, -apple-system, \"Segoe UI\", Roboto, \"Helvetica Neue\", Arial; background:#f7f8fa; color:#111 }
+html, body, #app {
+  height: 100%;
+  margin: 0;
+  font-family: 'Inter', 'SF Pro Display', system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+  background: linear-gradient(135deg, #f0f4f8, #ffffff);
+  color: #1a1a1a;
+}
+
+a {
+  color: #0ea5e9;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+button {
+  background: #0ea5e9;
+  color: white;
+  border: none;
+  padding: 10px 16px;
+  border-radius: 10px;
+  transition: all 0.3s ease;
+}
+
+button:hover {
+  background: #0284c7;
+  transform: translateY(-1px);
+}
 </style>
